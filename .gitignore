@@ -1,0 +1,47 @@
+# Maven build output
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# IntelliJ IDEA files
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
+*.iml
+*.ipr
+
+# Eclipse IDE files
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# NetBeans IDE files
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# Visual Studio Code files
+.vscode/
+
+# Mac OS specific files
+.DS_Store
+
+# Log files
+*.log
+
+# Test output reports (keep API/Selenium reports)
+target/apiReports/
+target/seleniumReports/
+target/reports/
