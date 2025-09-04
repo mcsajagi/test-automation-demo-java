@@ -63,9 +63,9 @@ jobs:
             elif [ "${{ github.event.inputs.testType }}" = "selenium" ]; then
               if [ "${{ github.event.inputs.headlessMode }}" = "true" ]; then
                 # Headless mód engedélyezése
-                mvn test -DtestType=selenium -Dheadless=true -Duser-data-dir=$USER_DATA_DIR -DchromeOptions='--headless --no-sandbox --disable-dev-shm-usage --remote-debugging-port=9222 --disable-software-rasterizer'
+                mvn test -DtestType=selenium -Dheadless=true -Duser-data-dir=$USER_DATA_DIR -DchromeOptions='--headless --no-sandbox --disable-dev-shm-usage --remote-debugging-port=9222 --disable-software-rasterizer --disable-gpu'
               else
-                mvn test -DtestType=selenium -Duser-data-dir=$USER_DATA_DIR -DchromeOptions='--no-sandbox --disable-dev-shm-usage'
+                mvn test -DtestType=selenium -Duser-data-dir=$USER_DATA_DIR -DchromeOptions='--no-sandbox --disable-dev-shm-usage --disable-gpu'
               fi
             else
               mvn test -Duser-data-dir=$USER_DATA_DIR
