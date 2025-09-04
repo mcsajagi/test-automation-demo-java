@@ -19,17 +19,26 @@ jobs:
       - name: Set up Chrome (CI only)
         run: |
           if [ "$CI" = "true" ]; then
-            echo "CI környezet detektálva - Chrome letöltése"
+            echo "CI környezet detektálva - Chrome és ChromeDriver betöltése a resources mappából"
           
-            # Chrome és ChromeDriver letöltése a resources mappába
-            mkdir -p ~/resources  # A resources mappa létrehozása, ha még nem létezik
-            curl -L -o ~/resources/chrome-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/140.0.7339.80/linux64/chrome-linux64.zip
-            unzip ~/resources/chrome-linux64.zip -d ~/resources/
-            echo "CHROME_BIN=~/resources/chrome-linux64/chrome" >> $GITHUB_ENV
-          
-            curl -L -o ~/resources/chromedriver-linux64.zip https://chromedriver.storage.googleapis.com/140.0.7339.80/chromedriver_linux64.zip
-            unzip ~/resources/chromedriver-linux64.zip -d ~/resources/
-            echo "webdriver.chrome.driver=~/resources/chromedriver" >> $GITHUB_ENV
+            # Ahelyett, hogy letöltenénk a Chrome-t és ChromeDriver-t, most már a resources mappában keresünk
+            if [ -f "$GITHUB_WORKSPACE/src/test/resources/chromedriver/chrome-linux64.zip" ]; then
+              echo "Chrome zip fájl megtalálva a resources mappában"
+              unzip -o "$GITHUB_WORKSPACE/src/test/resources/chromedriver/chrome-linux64.zip" -d ~/resources/
+              echo "CHROME_BIN=~/resources/chrome-linux64/chrome" >> $GITHUB_ENV
+            else
+              echo "Chrome zip fájl nem található a resources mappában!"
+              exit 1
+            fi
+
+            if [ -f "$GITHUB_WORKSPACE/src/test/resources/chromedriver/chromedriver_linux64.zip" ]; then
+              echo "ChromeDriver zip fájl megtalálva a resources mappában"
+              unzip -o "$GITHUB_WORKSPACE/src/test/resources/chromedriver/chromedriver_linux64.zip" -d ~/resources/
+              echo "webdriver.chrome.driver=~/resources/chromedriver" >> $GITHUB_ENV
+            else
+              echo "ChromeDriver zip fájl nem található a resources mappában!"
+              exit 1
+            fi
           else
             echo "Helyi fejlesztési környezet - Chrome már telepítve van"
             echo "CHROME_BIN=/usr/bin/google-chrome" >> $GITHUB_ENV
