@@ -27,6 +27,6 @@ build/
 .vscode/
 .DS_Store
 *.log
-target/apiReports/
-target/seleniumReports/
-target/reports/
+!target/apiReports/
+!target/seleniumReports/
+!target/reports/
