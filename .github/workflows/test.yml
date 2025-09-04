@@ -37,21 +37,31 @@ jobs:
           sudo dpkg -i google-chrome-stable_current_amd64.deb
           sudo apt --fix-broken install -y
 
+      - name: Install ChromeDriver
+        run: |
+          CHROMEDRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+          wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+          unzip chromedriver_linux64.zip
+          sudo mv chromedriver /usr/local/bin/
+          sudo chmod +x /usr/local/bin/chromedriver
+
       - name: Run tests
         run: |
+          mkdir -p ./chrome-user-data
+          USER_DATA_DIR=$(pwd)/chrome-user-data
           echo "runMode=CI" >> $GITHUB_ENV
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             if [ "${{ github.event.inputs.testType }}" = "api" ]; then
               mvn test -DtestType=api
             elif [ "${{ github.event.inputs.testType }}" = "selenium" ]; then
               if [ "${{ github.event.inputs.headlessMode }}" = "true" ]; then
-                mvn test -DtestType=selenium -Dheadless=true
+                mvn test -DtestType=selenium -Dheadless=true -Duser-data-dir=$USER_DATA_DIR
               else
-                mvn test -DtestType=selenium
+                mvn test -DtestType=selenium -Duser-data-dir=$USER_DATA_DIR
               fi
             else
-              mvn test
+              mvn test -Duser-data-dir=$USER_DATA_DIR
             fi
           else
-            mvn test
+            mvn test -Duser-data-dir=$USER_DATA_DIR
           fi
