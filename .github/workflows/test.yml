@@ -16,6 +16,31 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v2
 
+      - name: Set up Chrome and ChromeDriver (CI only)
+        run: |
+          if [ "$CI" = "true" ]; then
+            mkdir -p ./src/test/resources/chromedriver
+            curl -L --fail --retry 3 -o ./src/test/resources/chromedriver/chromedriver_linux64.zip https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
+            if [ $? -ne 0 ]; then
+              echo "Hiba történt a ChromeDriver letöltésekor!" && exit 1
+            fi
+            unzip -o ./src/test/resources/chromedriver/chromedriver_linux64.zip -d ./src/test/resources/chromedriver/
+            chmod +x ./src/test/resources/chromedriver/chromedriver
+            echo "webdriver.chrome.driver=./src/test/resources/chromedriver/chromedriver" >> $GITHUB_ENV
+
+            curl -L --fail --retry 3 -o ./src/test/resources/chromedriver/chrome-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/140.0.7339.80/linux64/chrome-linux64.zip
+            if [ $? -ne 0 ]; then
+              echo "Hiba történt a Chrome letöltésekor!" && exit 1
+            fi
+            unzip -o ./src/test/resources/chromedriver/chrome-linux64.zip -d ./src/test/resources/chromedriver/
+            chmod +x ./src/test/resources/chromedriver/chrome-linux64/chrome
+            echo "CHROME_BIN=./src/test/resources/chromedriver/chrome-linux64/chrome" >> $GITHUB_ENV
+          else
+            echo "Helyi fejlesztési környezet - Chrome és ChromeDriver már telepítve van"
+            echo "CHROME_BIN=/usr/bin/google-chrome" >> $GITHUB_ENV
+            echo "webdriver.chrome.driver=/usr/bin/chromedriver" >> $GITHUB_ENV
+          fi
+
       - name: Set up Java
         uses: actions/setup-java@v2
         with:
@@ -33,7 +58,7 @@ jobs:
           mvn test -Dchrome.options="--headless --disable-gpu --no-sandbox --disable-dev-shm-usage --user-data-dir=/tmp/chrome-test-profile-${{ github.run_id }}"
 
       - name: Upload Test Report as Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: selenium-test-report
-          path: target/reports/extent-report*.html
+          path: target/reports/report_*.html
