@@ -20,7 +20,6 @@ jobs:
         run: |
           if [ "$CI" = "true" ]; then
             echo "CI környezet detektálva - Chrome letöltése"
-            # Letöltjük a Chrome-ot és a ChromeDriver-t a CI környezetben
             curl -L -o ~/chrome/chrome-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/140.0.7339.80/linux64/chrome-linux64.zip
             unzip ~/chrome/chrome-linux64.zip -d ~/chrome/
             echo "CHROME_BIN=~/chrome/chrome-linux64/chrome" >> $GITHUB_ENV
@@ -29,7 +28,6 @@ jobs:
             echo "webdriver.chrome.driver=~/chrome/chromedriver" >> $GITHUB_ENV
           else
             echo "Helyi fejlesztési környezet - Chrome már telepítve van"
-            # Helyi környezetben nem kell letölteni - itt használja az alapértelmezett chrome-ot
             echo "CHROME_BIN=/usr/bin/google-chrome" >> $GITHUB_ENV
             echo "webdriver.chrome.driver=/usr/bin/chromedriver" >> $GITHUB_ENV
           fi
