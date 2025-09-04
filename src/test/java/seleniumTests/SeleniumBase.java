@@ -12,6 +12,7 @@ import seleniumTests.helpers.SlowDownListener;
 import seleniumTests.seleniumActions.SeleniumActions;
 
 import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 
 public class SeleniumBase {
@@ -70,7 +71,7 @@ public class SeleniumBase {
             Runtime.getRuntime().exec(unzipCommand).waitFor();
 
             return downloadDir + "chromedriver";
-        } catch (Exception e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
             throw new RuntimeException("ChromeDriver letöltés vagy telepítés nem sikerült.");
         }
