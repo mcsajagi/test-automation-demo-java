@@ -26,10 +26,12 @@ public class SeleniumBase {
 
         if (headless) {
             options.addArguments("--headless");
-            options.addArguments("--disable-gpu");
-            options.addArguments("--window-size=1920x1080");
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--remote-debugging-port=9222");
+            options.addArguments("--window-size=1920x1080");
+            options.addArguments("--disable-software-rasterizer");
         }
 
         ChromeDriver rawDriver = new ChromeDriver(options);
