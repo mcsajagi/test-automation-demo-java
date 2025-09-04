@@ -47,12 +47,16 @@ jobs:
 
       - name: Run tests
         run: |
+          # Chrome user data directory létrehozása
           mkdir -p ./chrome-user-data
           USER_DATA_DIR=$(pwd)/chrome-user-data
-          echo "runMode=CI" >> $GITHUB_ENV
+
+          echo "HEADLESS_MODE=${{ github.event.inputs.headlessMode }}" >> $GITHUB_ENV
+          echo "USER_DATA_DIR=$USER_DATA_DIR" >> $GITHUB_ENV
+
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             if [ "${{ github.event.inputs.testType }}" = "api" ]; then
-              mvn test -DtestType=api
+              mvn test -DtestType=api -Duser-data-dir=$USER_DATA_DIR
             elif [ "${{ github.event.inputs.testType }}" = "selenium" ]; then
               if [ "${{ github.event.inputs.headlessMode }}" = "true" ]; then
                 mvn test -DtestType=selenium -Dheadless=true -Duser-data-dir=$USER_DATA_DIR

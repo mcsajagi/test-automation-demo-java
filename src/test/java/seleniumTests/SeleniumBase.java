@@ -20,13 +20,16 @@ public class SeleniumBase {
 
     @BeforeMethod
     public void openPage() {
-        boolean headless = Boolean.parseBoolean(System.getProperty("headless", "false"));
 
+        boolean headless = Boolean.parseBoolean(System.getenv("HEADLESS_MODE"));
         ChromeOptions options = new ChromeOptions();
+
         if (headless) {
             options.addArguments("--headless");
             options.addArguments("--disable-gpu");
             options.addArguments("--window-size=1920x1080");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
         }
 
         ChromeDriver rawDriver = new ChromeDriver(options);
