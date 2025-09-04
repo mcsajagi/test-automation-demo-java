@@ -61,16 +61,33 @@ public class SeleniumBase {
         try {
             File dir = new File(downloadDir);
             if (!dir.exists()) {
-                dir.mkdirs();
+                boolean created = dir.mkdirs();
+                if (created) {
+                    System.out.println("A könyvtár létrehozva: " + downloadDir);
+                } else {
+                    System.out.println("A könyvtár nem hozható létre: " + downloadDir);
+                }
             }
 
             String wgetCommand = "wget -q " + downloadUrl + " -P " + downloadDir;
             String unzipCommand = "unzip -q " + downloadDir + "chromedriver_linux64.zip -d " + downloadDir;
 
-            Runtime.getRuntime().exec(wgetCommand).waitFor();
-            Runtime.getRuntime().exec(unzipCommand).waitFor();
+            Process wgetProcess = Runtime.getRuntime().exec(wgetCommand);
+            int wgetExitCode = wgetProcess.waitFor();
+            if (wgetExitCode != 0) {
+                System.out.println("Hiba a ChromeDriver letöltése közben!");
+            }
 
-            return downloadDir + "chromedriver";
+            Process unzipProcess = Runtime.getRuntime().exec(unzipCommand);
+            int unzipExitCode = unzipProcess.waitFor();
+            if (unzipExitCode != 0) {
+                System.out.println("Hiba a ZIP fájl kicsomagolása közben!");
+            }
+
+            String chromedriverPath = downloadDir + "chromedriver";
+            System.out.println("ChromeDriver elérési útja: " + chromedriverPath);
+            return chromedriverPath;
+
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
             throw new RuntimeException("ChromeDriver letöltés vagy telepítés nem sikerült.");
