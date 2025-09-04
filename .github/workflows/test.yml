@@ -54,16 +54,15 @@ jobs:
           echo "HEADLESS_MODE=${{ github.event.inputs.headlessMode }}" >> $GITHUB_ENV
           echo "USER_DATA_DIR=$USER_DATA_DIR" >> $GITHUB_ENV
 
-          # Tesztelés típusának beállítása
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             if [ "${{ github.event.inputs.testType }}" = "api" ]; then
               mvn test -DtestType=api -Duser-data-dir=$USER_DATA_DIR
             elif [ "${{ github.event.inputs.testType }}" = "selenium" ]; then
               if [ "${{ github.event.inputs.headlessMode }}" = "true" ]; then
                 # Headless mód engedélyezése
-                mvn test -DtestType=selenium -Dheadless=true -Duser-data-dir=$USER_DATA_DIR
+                mvn test -DtestType=selenium -Dheadless=true -Duser-data-dir=$USER_DATA_DIR -DchromeOptions='--headless --no-sandbox --disable-dev-shm-usage --remote-debugging-port=9222 --disable-software-rasterizer'
               else
-                mvn test -DtestType=selenium -Duser-data-dir=$USER_DATA_DIR
+                mvn test -DtestType=selenium -Duser-data-dir=$USER_DATA_DIR -DchromeOptions='--no-sandbox --disable-dev-shm-usage'
               fi
             else
               mvn test -Duser-data-dir=$USER_DATA_DIR
