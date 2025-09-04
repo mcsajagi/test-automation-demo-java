@@ -47,6 +47,22 @@ jobs:
           sudo mv chromedriver /usr/local/bin/
           sudo chmod +x /usr/local/bin/chromedriver
 
+      - name: Log system information
+        run: |
+          echo "### SYSTEM INFORMATION ###"
+          uname -a
+          df -h
+          free -m
+          echo "### END SYSTEM INFORMATION ###"
+
+      - name: Log Chrome and ChromeDriver versions
+        run: |
+          echo "### CHROME VERSION ###"
+          google-chrome --version
+          echo "### CHROMEDRIVER VERSION ###"
+          chromedriver --version
+          echo "### END CHROME AND CHROMEDRIVER VERSION ###"
+
       - name: Run tests
         run: |
           # Chrome user data directory létrehozása
@@ -56,20 +72,31 @@ jobs:
           echo "HEADLESS_MODE=${{ github.event.inputs.headlessMode }}" >> $GITHUB_ENV
           echo "USER_DATA_DIR=$USER_DATA_DIR" >> $GITHUB_ENV
 
+          # Logoljuk a környezeti változókat
+          echo "### ENVIRONMENT VARIABLES ###"
+          printenv
+          echo "### END ENVIRONMENT VARIABLES ###"
+
           # Tesztelés típusának beállítása
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             if [ "${{ github.event.inputs.testType }}" = "api" ]; then
-              mvn test -DtestType=api -Duser-data-dir=$USER_DATA_DIR
+              mvn test -DtestType=api -Duser-data-dir=$USER_DATA_DIR -X
             elif [ "${{ github.event.inputs.testType }}" = "selenium" ]; then
               if [ "${{ github.event.inputs.headlessMode }}" = "true" ]; then
                 # Headless mód engedélyezése
-                mvn test -DtestType=selenium -Dheadless=true -Duser-data-dir=$USER_DATA_DIR -DchromeOptions='--headless --no-sandbox --disable-dev-shm-usage --remote-debugging-port=9222 --disable-software-rasterizer --disable-gpu'
+                mvn test -DtestType=selenium -Dheadless=true -Duser-data-dir=$USER_DATA_DIR -DchromeOptions='--headless --no-sandbox --disable-dev-shm-usage --remote-debugging-port=9222 --disable-software-rasterizer --disable-gpu' -X
               else
-                mvn test -DtestType=selenium -Duser-data-dir=$USER_DATA_DIR -DchromeOptions='--no-sandbox --disable-dev-shm-usage --disable-gpu'
+                mvn test -DtestType=selenium -Duser-data-dir=$USER_DATA_DIR -DchromeOptions='--no-sandbox --disable-dev-shm-usage --disable-gpu' -X
               fi
             else
-              mvn test -Duser-data-dir=$USER_DATA_DIR
+              mvn test -Duser-data-dir=$USER_DATA_DIR -X
             fi
           else
-            mvn test -Duser-data-dir=$USER_DATA_DIR
+            mvn test -Duser-data-dir=$USER_DATA_DIR -X
           fi
+
+      - name: Check if tests passed
+        run: |
+          echo "### TEST RESULTS ###"
+          tail -n 20 target/surefire-reports/*.log
+          echo "### END TEST RESULTS ###"
