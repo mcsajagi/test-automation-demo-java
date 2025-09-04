@@ -16,16 +16,20 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v2
 
-      - name: Set up Chrome
+      - name: Set up Chrome (CI only)
         run: |
           if [ "$CI" = "true" ]; then
             echo "CI környezet detektálva - Chrome letöltése"
-            curl -L -o ~/chrome/chrome-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/140.0.7339.80/linux64/chrome-linux64.zip
-            unzip ~/chrome/chrome-linux64.zip -d ~/chrome/
-            echo "CHROME_BIN=~/chrome/chrome-linux64/chrome" >> $GITHUB_ENV
-            curl -L -o ~/chrome/chromedriver-linux64.zip https://chromedriver.storage.googleapis.com/140.0.7339.80/chromedriver_linux64.zip
-            unzip ~/chrome/chromedriver-linux64.zip -d ~/chrome/
-            echo "webdriver.chrome.driver=~/chrome/chromedriver" >> $GITHUB_ENV
+          
+            # Chrome és ChromeDriver letöltése a resources mappába
+            mkdir -p ~/resources  # A resources mappa létrehozása, ha még nem létezik
+            curl -L -o ~/resources/chrome-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/140.0.7339.80/linux64/chrome-linux64.zip
+            unzip ~/resources/chrome-linux64.zip -d ~/resources/
+            echo "CHROME_BIN=~/resources/chrome-linux64/chrome" >> $GITHUB_ENV
+          
+            curl -L -o ~/resources/chromedriver-linux64.zip https://chromedriver.storage.googleapis.com/140.0.7339.80/chromedriver_linux64.zip
+            unzip ~/resources/chromedriver-linux64.zip -d ~/resources/
+            echo "webdriver.chrome.driver=~/resources/chromedriver" >> $GITHUB_ENV
           else
             echo "Helyi fejlesztési környezet - Chrome már telepítve van"
             echo "CHROME_BIN=/usr/bin/google-chrome" >> $GITHUB_ENV
