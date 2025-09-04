@@ -22,21 +22,21 @@ jobs:
             echo "CI környezet detektálva - Chrome és ChromeDriver betöltése a resources mappából"
           
             # Ahelyett, hogy letöltenénk a Chrome-t és ChromeDriver-t, most már a resources mappában keresünk
-            if [ -f "$GITHUB_WORKSPACE/src/test/resources/chromedriver/chrome-linux64.zip" ]; then
-              echo "Chrome zip fájl megtalálva a resources mappában"
-              unzip -o "$GITHUB_WORKSPACE/src/test/resources/chromedriver/chrome-linux64.zip" -d ~/resources/
-              echo "CHROME_BIN=~/resources/chrome-linux64/chrome" >> $GITHUB_ENV
-            else
-              echo "Chrome zip fájl nem található a resources mappában!"
-              exit 1
-            fi
-
             if [ -f "$GITHUB_WORKSPACE/src/test/resources/chromedriver/chromedriver_linux64.zip" ]; then
               echo "ChromeDriver zip fájl megtalálva a resources mappában"
               unzip -o "$GITHUB_WORKSPACE/src/test/resources/chromedriver/chromedriver_linux64.zip" -d ~/resources/
               echo "webdriver.chrome.driver=~/resources/chromedriver" >> $GITHUB_ENV
             else
               echo "ChromeDriver zip fájl nem található a resources mappában!"
+              exit 1
+            fi
+          
+            if [ -f "$GITHUB_WORKSPACE/src/test/resources/chromedriver/chrome-linux64.zip" ]; then
+              echo "Chrome zip fájl megtalálva a resources mappában"
+              unzip -o "$GITHUB_WORKSPACE/src/test/resources/chromedriver/chrome-linux64.zip" -d ~/resources/
+              echo "CHROME_BIN=~/resources/chrome-linux64/chrome" >> $GITHUB_ENV
+            else
+              echo "Chrome zip fájl nem található a resources mappában!"
               exit 1
             fi
           else
