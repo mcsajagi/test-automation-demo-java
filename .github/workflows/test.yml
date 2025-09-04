@@ -39,9 +39,7 @@ jobs:
 
       - name: Install ChromeDriver
         run: |
-          # Get the latest version of ChromeDriver for the current Chrome version
-          CHROMEDRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
-          # Download the ChromeDriver matching the detected version
+          CHROMEDRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE_140)
           wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
           unzip chromedriver_linux64.zip
           sudo mv chromedriver /usr/local/bin/
@@ -65,25 +63,21 @@ jobs:
 
       - name: Run tests
         run: |
-          # Chrome user data directory létrehozása
           mkdir -p ./chrome-user-data
           USER_DATA_DIR=$(pwd)/chrome-user-data
 
           echo "HEADLESS_MODE=${{ github.event.inputs.headlessMode }}" >> $GITHUB_ENV
           echo "USER_DATA_DIR=$USER_DATA_DIR" >> $GITHUB_ENV
 
-          # Logoljuk a környezeti változókat
           echo "### ENVIRONMENT VARIABLES ###"
           printenv
           echo "### END ENVIRONMENT VARIABLES ###"
 
-          # Tesztelés típusának beállítása
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             if [ "${{ github.event.inputs.testType }}" = "api" ]; then
               mvn test -DtestType=api -Duser-data-dir=$USER_DATA_DIR -X
             elif [ "${{ github.event.inputs.testType }}" = "selenium" ]; then
               if [ "${{ github.event.inputs.headlessMode }}" = "true" ]; then
-                # Headless mód engedélyezése
                 mvn test -DtestType=selenium -Dheadless=true -Duser-data-dir=$USER_DATA_DIR -DchromeOptions='--headless --no-sandbox --disable-dev-shm-usage --remote-debugging-port=9222 --disable-software-rasterizer --disable-gpu' -X
               else
                 mvn test -DtestType=selenium -Duser-data-dir=$USER_DATA_DIR -DchromeOptions='--no-sandbox --disable-dev-shm-usage --disable-gpu' -X
