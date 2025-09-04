@@ -1,4 +1,4 @@
-name: Run Tests
+name: Selenium Tests
 
 on:
   push:
@@ -7,58 +7,42 @@ on:
   pull_request:
     branches:
       - main
-  workflow_dispatch:
-    inputs:
-      testType:
-        description: 'Melyik teszteket futtassuk? (api, selenium, all)'
-        required: true
-        default: 'all'
-      headlessMode:
-        description: 'Futtassuk headless módban? (true/false)'
-        required: true
-        default: 'false'
 
 jobs:
-  run-tests:
+  selenium-test:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Check out the repository
+        uses: actions/checkout@v2
 
-      - uses: actions/setup-java@v3
-        with:
-          java-version: '21'
-          distribution: 'temurin'
-
-      - name: Log system information
+      - name: Set up Chrome
         run: |
-          echo "### SYSTEM INFORMATION ###"
-          uname -a
-          df -h
-          free -m
-          echo "### END SYSTEM INFORMATION ###"
-
-      - name: Run tests
-        run: |
-          echo "HEADLESS_MODE=${{ github.event.inputs.headlessMode }}" >> $GITHUB_ENV
-
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            if [ "${{ github.event.inputs.testType }}" = "api" ]; then
-              mvn test -DtestType=api -X
-            elif [ "${{ github.event.inputs.testType }}" = "selenium" ]; then
-              if [ "${{ github.event.inputs.headlessMode }}" = "true" ]; then
-                mvn test -DtestType=selenium -Dheadless=true -X
-              else
-                mvn test -DtestType=selenium -X
-              fi
-            else
-              mvn test -X
-            fi
+          if [ "$CI" = "true" ]; then
+            echo "CI környezet detektálva - Chrome letöltése"
+            # Letöltjük a Chrome-ot és a ChromeDriver-t a CI környezetben
+            curl -L -o ~/chrome/chrome-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/140.0.7339.80/linux64/chrome-linux64.zip
+            unzip ~/chrome/chrome-linux64.zip -d ~/chrome/
+            echo "CHROME_BIN=~/chrome/chrome-linux64/chrome" >> $GITHUB_ENV
+            curl -L -o ~/chrome/chromedriver-linux64.zip https://chromedriver.storage.googleapis.com/140.0.7339.80/chromedriver_linux64.zip
+            unzip ~/chrome/chromedriver-linux64.zip -d ~/chrome/
+            echo "webdriver.chrome.driver=~/chrome/chromedriver" >> $GITHUB_ENV
           else
-            mvn test -X
+            echo "Helyi fejlesztési környezet - Chrome már telepítve van"
+            # Helyi környezetben nem kell letölteni - itt használja az alapértelmezett chrome-ot
+            echo "CHROME_BIN=/usr/bin/google-chrome" >> $GITHUB_ENV
+            echo "webdriver.chrome.driver=/usr/bin/chromedriver" >> $GITHUB_ENV
           fi
 
-      - name: Check if tests passed
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+
+      - name: Install dependencies
         run: |
-          echo "### TEST RESULTS ###"
-          tail -n 20 target/surefire-reports/*.log
-          echo "### END TEST RESULTS ###"
+          mvn install -DskipTests
+
+      - name: Run Selenium Tests
+        run: |
+          mvn test
