@@ -51,8 +51,14 @@ jobs:
         run: |
           mvn install -DskipTests
 
-      - name: Run Selenium Tests
+      - name: Run Selenium Tests with Reporting
         run: |
           export DISPLAY=:99.0
           Xvfb :99 -screen 0 1280x1024x24 &
           mvn test -Dchrome.options="--headless --disable-gpu --no-sandbox --disable-dev-shm-usage --user-data-dir=/tmp/chrome-test-profile-${{ github.run_id }}"
+
+      - name: Upload Test Report as Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: selenium-test-report
+          path: target/extent-report.html
