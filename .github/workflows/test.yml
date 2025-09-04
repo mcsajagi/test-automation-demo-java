@@ -29,32 +29,32 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: Install Google Chrome
+      - name: Log system information
         run: |
-          sudo apt update
-          sudo apt install -y wget curl unzip
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo dpkg -i google-chrome-stable_current_amd64.deb
-          sudo apt --fix-broken install -y
-
-      - name: Install ChromeDriver
-        run: |
-          CHROMEDRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
-          wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
-          unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/local/bin/
-          sudo chmod +x /usr/local/bin/chromedriver
+          echo "### SYSTEM INFORMATION ###"
+          uname -a
+          df -h
+          free -m
+          echo "### END SYSTEM INFORMATION ###"
 
       - name: Run tests
         run: |
-          mkdir -p ./chrome-user-data
-          USER_DATA_DIR=$(pwd)/chrome-user-data
-          echo "USER_DATA_DIR=$USER_DATA_DIR" >> $GITHUB_ENV
+          echo "HEADLESS_MODE=${{ github.event.inputs.headlessMode }}" >> $GITHUB_ENV
 
-          if [ "${{ github.event.inputs.headlessMode }}" = "true" ]; then
-            mvn test -DtestType=selenium -Dheadless=true -Duser-data-dir=$USER_DATA_DIR -X
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            if [ "${{ github.event.inputs.testType }}" = "api" ]; then
+              mvn test -DtestType=api -X
+            elif [ "${{ github.event.inputs.testType }}" = "selenium" ]; then
+              if [ "${{ github.event.inputs.headlessMode }}" = "true" ]; then
+                mvn test -DtestType=selenium -Dheadless=true -X
+              else
+                mvn test -DtestType=selenium -X
+              fi
+            else
+              mvn test -X
+            fi
           else
-            mvn test -DtestType=selenium -Duser-data-dir=$USER_DATA_DIR -X
+            mvn test -X
           fi
 
       - name: Check if tests passed
