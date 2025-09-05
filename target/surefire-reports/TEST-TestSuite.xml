@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="63.284" tests="4" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/mcsajagi/IdeaProjects/DemoJava/target/test-classes:/Users/mcsajagi/IdeaProjects/DemoJava/target/classes:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-java/4.35.0/selenium-java-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-api/4.35.0/selenium-api-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/jspecify/jspecify/1.0.0/jspecify-1.0.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/4.35.0/selenium-chrome-driver-4.35.0.jar:/Users/mcsajagi/.m2/repository/com/google/auto/service/auto-service-annotations/1.1.1/auto-service-annotations-1.1.1.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-chromium-driver/4.35.0/selenium-chromium-driver-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-json/4.35.0/selenium-json-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-manager/4.35.0/selenium-manager-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v137/4.35.0/selenium-devtools-v137-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v138/4.35.0/selenium-devtools-v138-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v139/4.35.0/selenium-devtools-v139-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/4.35.0/selenium-edge-driver-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/4.35.0/selenium-firefox-driver-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-http/4.35.0/selenium-http-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/4.35.0/selenium-ie-driver-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-remote-driver/4.35.0/selenium-remote-driver-4.35.0.jar:/Users/mcsajagi/.m2/repository/com/google/guava/guava/33.4.8-jre/guava-33.4.8-jre.jar:/Users/mcsajagi/.m2/repository/com/google/guava/failureaccess/1.0.3/failureaccess-1.0.3.jar:/Users/mcsajagi/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/Users/mcsajagi/.m2/repository/com/google/j2objc/j2objc-annotations/3.0.0/j2objc-annotations-3.0.0.jar:/Users/mcsajagi/.m2/repository/io/opentelemetry/opentelemetry-api/1.53.0/opentelemetry-api-1.53.0.jar:/Users/mcsajagi/.m2/repository/io/opentelemetry/opentelemetry-context/1.53.0/opentelemetry-context-1.53.0.jar:/Users/mcsajagi/.m2/repository/io/opentelemetry/opentelemetry-common/1.53.0/opentelemetry-common-1.53.0.jar:/Users/mcsajagi/.m2/repository/io/opentelemetry/opentelemetry-exporter-logging/1.53.0/opentelemetry-exporter-logging-1.53.0.jar:/Users/mcsajagi/.m2/repository/io/opentelemetry/opentelemetry-sdk-common/1.53.0/opentelemetry-sdk-common-1.53.0.jar:/Users/mcsajagi/.m2/repository/io/opentelemetry/opentelemetry-sdk-extension-autoconfigure-spi/1.53.0/opentelemetry-sdk-extension-autoconfigure-spi-1.53.0.jar:/Users/mcsajagi/.m2/repository/io/opentelemetry/opentelemetry-sdk-extension-autoconfigure/1.53.0/opentelemetry-sdk-extension-autoconfigure-1.53.0.jar:/Users/mcsajagi/.m2/repository/io/opentelemetry/opentelemetry-sdk-trace/1.53.0/opentelemetry-sdk-trace-1.53.0.jar:/Users/mcsajagi/.m2/repository/io/opentelemetry/opentelemetry-sdk/1.53.0/opentelemetry-sdk-1.53.0.jar:/Users/mcsajagi/.m2/repository/io/opentelemetry/opentelemetry-sdk-metrics/1.53.0/opentelemetry-sdk-metrics-1.53.0.jar:/Users/mcsajagi/.m2/repository/io/opentelemetry/opentelemetry-sdk-logs/1.53.0/opentelemetry-sdk-logs-1.53.0.jar:/Users/mcsajagi/.m2/repository/net/bytebuddy/byte-buddy/1.17.6/byte-buddy-1.17.6.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-os/4.35.0/selenium-os-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/apache/commons/commons-exec/1.5.0/commons-exec-1.5.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-safari-driver/4.35.0/selenium-safari-driver-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-support/4.35.0/selenium-support-4.35.0.jar:/Users/mcsajagi/.m2/repository/io/github/bonigarcia/webdrivermanager/6.2.0/webdrivermanager-6.2.0.jar:/Users/mcsajagi/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/mcsajagi/.m2/repository/com/google/code/gson/gson/2.13.1/gson-2.13.1.jar:/Users/mcsajagi/.m2/repository/com/google/errorprone/error_prone_annotations/2.38.0/error_prone_annotations-2.38.0.jar:/Users/mcsajagi/.m2/repository/com/github/docker-java/docker-java/3.5.3/docker-java-3.5.3.jar:/Users/mcsajagi/.m2/repository/com/github/docker-java/docker-java-core/3.5.3/docker-java-core-3.5.3.jar:/Users/mcsajagi/.m2/repository/com/github/docker-java/docker-java-api/3.5.3/docker-java-api-3.5.3.jar:/Users/mcsajagi/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.18.4/jackson-annotations-2.18.4.jar:/Users/mcsajagi/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.18.4/jackson-databind-2.18.4.jar:/Users/mcsajagi/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.18.4/jackson-core-2.18.4.jar:/Users/mcsajagi/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.30/jcl-over-slf4j-1.7.30.jar:/Users/mcsajagi/.m2/repository/com/github/docker-java/docker-java-transport-httpclient5/3.5.3/docker-java-transport-httpclient5-3.5.3.jar:/Users/mcsajagi/.m2/repository/com/github/docker-java/docker-java-transport/3.5.3/docker-java-transport-3.5.3.jar:/Users/mcsajagi/.m2/repository/net/java/dev/jna/jna/5.17.0/jna-5.17.0.jar:/Users/mcsajagi/.m2/repository/org/brotli/dec/0.1.2/dec-0.1.2.jar:/Users/mcsajagi/.m2/repository/org/apache/commons/commons-lang3/3.18.0/commons-lang3-3.18.0.jar:/Users/mcsajagi/.m2/repository/org/apache/commons/commons-compress/1.27.1/commons-compress-1.27.1.jar:/Users/mcsajagi/.m2/repository/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar:/Users/mcsajagi/.m2/repository/org/apache/httpcomponents/client5/httpclient5/5.4.3/httpclient5-5.4.3.jar:/Users/mcsajagi/.m2/repository/org/apache/httpcomponents/core5/httpcore5/5.3.4/httpcore5-5.3.4.jar:/Users/mcsajagi/.m2/repository/org/apache/httpcomponents/core5/httpcore5-h2/5.3.4/httpcore5-h2-5.3.4.jar:/Users/mcsajagi/.m2/repository/net/java/dev/jna/jna-platform/5.17.0/jna-platform-5.17.0.jar:/Users/mcsajagi/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar:/Users/mcsajagi/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar:/Users/mcsajagi/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar:/Users/mcsajagi/.m2/repository/com/aventstack/extentreports/5.1.2/extentreports-5.1.2.jar:/Users/mcsajagi/.m2/repository/io/reactivex/rxjava3/rxjava/3.1.6/rxjava-3.1.6.jar:/Users/mcsajagi/.m2/repository/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar:/Users/mcsajagi/.m2/repository/org/freemarker/freemarker/2.3.32/freemarker-2.3.32.jar:/Users/mcsajagi/.m2/repository/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar:/Users/mcsajagi/.m2/repository/io/rest-assured/rest-assured/5.4.0/rest-assured-5.4.0.jar:/Users/mcsajagi/.m2/repository/org/apache/groovy/groovy/4.0.16/groovy-4.0.16.jar:/Users/mcsajagi/.m2/repository/org/apache/groovy/groovy-xml/4.0.16/groovy-xml-4.0.16.jar:/Users/mcsajagi/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/mcsajagi/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/mcsajagi/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/mcsajagi/.m2/repository/io/rest-assured/json-path/5.4.0/json-path-5.4.0.jar:/Users/mcsajagi/.m2/repository/org/apache/groovy/groovy-json/4.0.16/groovy-json-4.0.16.jar:/Users/mcsajagi/.m2/repository/io/rest-assured/rest-assured-common/5.4.0/rest-assured-common-5.4.0.jar:/Users/mcsajagi/.m2/repository/io/rest-assured/xml-path/5.4.0/xml-path-5.4.0.jar:/Users/mcsajagi/.m2/repository/org/slf4j/slf4j-simple/2.0.7/slf4j-simple-2.0.7.jar:/Users/mcsajagi/.m2/repository/org/apache/httpcomponents/httpclient/4.5.14/httpclient-4.5.14.jar:/Users/mcsajagi/.m2/repository/org/apache/httpcomponents/httpcore/4.4.16/httpcore-4.4.16.jar:/Users/mcsajagi/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/mcsajagi/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/mcsajagi/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/mcsajagi/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Budapest"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="HU"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/mcsajagi/IdeaProjects/DemoJava/target/surefire/surefirebooter-20250904231824580_3.jar /Users/mcsajagi/IdeaProjects/DemoJava/target/surefire 2025-09-04T23-18-24_546-jvmRun1 surefire-20250904231824580_1tmp surefire_0-20250904231824580_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/mcsajagi/IdeaProjects/DemoJava/target/test-classes:/Users/mcsajagi/IdeaProjects/DemoJava/target/classes:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-java/4.35.0/selenium-java-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-api/4.35.0/selenium-api-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/jspecify/jspecify/1.0.0/jspecify-1.0.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/4.35.0/selenium-chrome-driver-4.35.0.jar:/Users/mcsajagi/.m2/repository/com/google/auto/service/auto-service-annotations/1.1.1/auto-service-annotations-1.1.1.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-chromium-driver/4.35.0/selenium-chromium-driver-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-json/4.35.0/selenium-json-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-manager/4.35.0/selenium-manager-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v137/4.35.0/selenium-devtools-v137-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v138/4.35.0/selenium-devtools-v138-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v139/4.35.0/selenium-devtools-v139-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/4.35.0/selenium-edge-driver-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/4.35.0/selenium-firefox-driver-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-http/4.35.0/selenium-http-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/4.35.0/selenium-ie-driver-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-remote-driver/4.35.0/selenium-remote-driver-4.35.0.jar:/Users/mcsajagi/.m2/repository/com/google/guava/guava/33.4.8-jre/guava-33.4.8-jre.jar:/Users/mcsajagi/.m2/repository/com/google/guava/failureaccess/1.0.3/failureaccess-1.0.3.jar:/Users/mcsajagi/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/Users/mcsajagi/.m2/repository/com/google/j2objc/j2objc-annotations/3.0.0/j2objc-annotations-3.0.0.jar:/Users/mcsajagi/.m2/repository/io/opentelemetry/opentelemetry-api/1.53.0/opentelemetry-api-1.53.0.jar:/Users/mcsajagi/.m2/repository/io/opentelemetry/opentelemetry-context/1.53.0/opentelemetry-context-1.53.0.jar:/Users/mcsajagi/.m2/repository/io/opentelemetry/opentelemetry-common/1.53.0/opentelemetry-common-1.53.0.jar:/Users/mcsajagi/.m2/repository/io/opentelemetry/opentelemetry-exporter-logging/1.53.0/opentelemetry-exporter-logging-1.53.0.jar:/Users/mcsajagi/.m2/repository/io/opentelemetry/opentelemetry-sdk-common/1.53.0/opentelemetry-sdk-common-1.53.0.jar:/Users/mcsajagi/.m2/repository/io/opentelemetry/opentelemetry-sdk-extension-autoconfigure-spi/1.53.0/opentelemetry-sdk-extension-autoconfigure-spi-1.53.0.jar:/Users/mcsajagi/.m2/repository/io/opentelemetry/opentelemetry-sdk-extension-autoconfigure/1.53.0/opentelemetry-sdk-extension-autoconfigure-1.53.0.jar:/Users/mcsajagi/.m2/repository/io/opentelemetry/opentelemetry-sdk-trace/1.53.0/opentelemetry-sdk-trace-1.53.0.jar:/Users/mcsajagi/.m2/repository/io/opentelemetry/opentelemetry-sdk/1.53.0/opentelemetry-sdk-1.53.0.jar:/Users/mcsajagi/.m2/repository/io/opentelemetry/opentelemetry-sdk-metrics/1.53.0/opentelemetry-sdk-metrics-1.53.0.jar:/Users/mcsajagi/.m2/repository/io/opentelemetry/opentelemetry-sdk-logs/1.53.0/opentelemetry-sdk-logs-1.53.0.jar:/Users/mcsajagi/.m2/repository/net/bytebuddy/byte-buddy/1.17.6/byte-buddy-1.17.6.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-os/4.35.0/selenium-os-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/apache/commons/commons-exec/1.5.0/commons-exec-1.5.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-safari-driver/4.35.0/selenium-safari-driver-4.35.0.jar:/Users/mcsajagi/.m2/repository/org/seleniumhq/selenium/selenium-support/4.35.0/selenium-support-4.35.0.jar:/Users/mcsajagi/.m2/repository/io/github/bonigarcia/webdrivermanager/6.2.0/webdrivermanager-6.2.0.jar:/Users/mcsajagi/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/mcsajagi/.m2/repository/com/google/code/gson/gson/2.13.1/gson-2.13.1.jar:/Users/mcsajagi/.m2/repository/com/google/errorprone/error_prone_annotations/2.38.0/error_prone_annotations-2.38.0.jar:/Users/mcsajagi/.m2/repository/com/github/docker-java/docker-java/3.5.3/docker-java-3.5.3.jar:/Users/mcsajagi/.m2/repository/com/github/docker-java/docker-java-core/3.5.3/docker-java-core-3.5.3.jar:/Users/mcsajagi/.m2/repository/com/github/docker-java/docker-java-api/3.5.3/docker-java-api-3.5.3.jar:/Users/mcsajagi/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.18.4/jackson-annotations-2.18.4.jar:/Users/mcsajagi/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.18.4/jackson-databind-2.18.4.jar:/Users/mcsajagi/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.18.4/jackson-core-2.18.4.jar:/Users/mcsajagi/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.30/jcl-over-slf4j-1.7.30.jar:/Users/mcsajagi/.m2/repository/com/github/docker-java/docker-java-transport-httpclient5/3.5.3/docker-java-transport-httpclient5-3.5.3.jar:/Users/mcsajagi/.m2/repository/com/github/docker-java/docker-java-transport/3.5.3/docker-java-transport-3.5.3.jar:/Users/mcsajagi/.m2/repository/net/java/dev/jna/jna/5.17.0/jna-5.17.0.jar:/Users/mcsajagi/.m2/repository/org/brotli/dec/0.1.2/dec-0.1.2.jar:/Users/mcsajagi/.m2/repository/org/apache/commons/commons-lang3/3.18.0/commons-lang3-3.18.0.jar:/Users/mcsajagi/.m2/repository/org/apache/commons/commons-compress/1.27.1/commons-compress-1.27.1.jar:/Users/mcsajagi/.m2/repository/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar:/Users/mcsajagi/.m2/repository/org/apache/httpcomponents/client5/httpclient5/5.4.3/httpclient5-5.4.3.jar:/Users/mcsajagi/.m2/repository/org/apache/httpcomponents/core5/httpcore5/5.3.4/httpcore5-5.3.4.jar:/Users/mcsajagi/.m2/repository/org/apache/httpcomponents/core5/httpcore5-h2/5.3.4/httpcore5-h2-5.3.4.jar:/Users/mcsajagi/.m2/repository/net/java/dev/jna/jna-platform/5.17.0/jna-platform-5.17.0.jar:/Users/mcsajagi/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar:/Users/mcsajagi/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar:/Users/mcsajagi/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar:/Users/mcsajagi/.m2/repository/com/aventstack/extentreports/5.1.2/extentreports-5.1.2.jar:/Users/mcsajagi/.m2/repository/io/reactivex/rxjava3/rxjava/3.1.6/rxjava-3.1.6.jar:/Users/mcsajagi/.m2/repository/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar:/Users/mcsajagi/.m2/repository/org/freemarker/freemarker/2.3.32/freemarker-2.3.32.jar:/Users/mcsajagi/.m2/repository/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar:/Users/mcsajagi/.m2/repository/io/rest-assured/rest-assured/5.4.0/rest-assured-5.4.0.jar:/Users/mcsajagi/.m2/repository/org/apache/groovy/groovy/4.0.16/groovy-4.0.16.jar:/Users/mcsajagi/.m2/repository/org/apache/groovy/groovy-xml/4.0.16/groovy-xml-4.0.16.jar:/Users/mcsajagi/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/mcsajagi/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/mcsajagi/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/mcsajagi/.m2/repository/io/rest-assured/json-path/5.4.0/json-path-5.4.0.jar:/Users/mcsajagi/.m2/repository/org/apache/groovy/groovy-json/4.0.16/groovy-json-4.0.16.jar:/Users/mcsajagi/.m2/repository/io/rest-assured/rest-assured-common/5.4.0/rest-assured-common-5.4.0.jar:/Users/mcsajagi/.m2/repository/io/rest-assured/xml-path/5.4.0/xml-path-5.4.0.jar:/Users/mcsajagi/.m2/repository/org/slf4j/slf4j-simple/2.0.7/slf4j-simple-2.0.7.jar:/Users/mcsajagi/.m2/repository/org/apache/httpcomponents/httpclient/4.5.14/httpclient-4.5.14.jar:/Users/mcsajagi/.m2/repository/org/apache/httpcomponents/httpcore/4.4.16/httpcore-4.4.16.jar:/Users/mcsajagi/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/mcsajagi/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/mcsajagi/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/mcsajagi/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/mcsajagi"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-07-15"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/mcsajagi/IdeaProjects/DemoJava"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="apple.awt.application.name" value="ForkedBooter"/>
+    <property name="surefire.real.class.path" value="/Users/mcsajagi/IdeaProjects/DemoJava/target/surefire/surefirebooter-20250904231824580_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="21.0.8+12-LTS-250"/>
+    <property name="user.name" value="mcsajagi"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="15.5"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="/Users/mcsajagi/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="/var/folders/rk/7wzhync92ns6ml1s6c1wl8b40000gn/T/"/>
+    <property name="java.version" value="21.0.8"/>
+    <property name="user.dir" value="/Users/mcsajagi/IdeaProjects/DemoJava"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/mcsajagi/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="21.0.8+12-LTS-250"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="getBaseURI" classname="apiTests.apiActions.ApiActionsTest" time="0.637"/>
+  <testcase name="getSpecificOnlineUser" classname="apiTests.apiActions.ApiActionsTest" time="0.325">
+    <system-out><![CDATA[+--------+-------+
+| Név    | Darab |
++--------+-------+
+| Gabor  | 3     |
+| Attila | 1     |
+| Tamas  | 1     |
++--------+-------+
+]]></system-out>
+  </testcase>
+  <testcase name="testSpecificFilterElementsInDropDown" classname="seleniumTests.tests.Tests" time="16.123">
+    <system-out><![CDATA[Dropdown opciók listája:
+1: ABASI CONCEPTS
+2: ADAM AUDIO
+3: AER
+4: AKG
+5: ALTO
+6: AMT Electronics
+7: APC Instrumentos Musicais
+8: ARIA
+9: ARION
+10: AV-Jefe
+11: AVID
+12: AXL
+13: Ableton
+14: Access
+15: Aclam
+16: Acoustic
+17: ActitioN
+18: Acus
+19: Adam Hall
+20: Agile
+21: Aguilar
+22: Akai
+23: Alesis
+24: Alexa
+25: Alice
+26: Allen&Heath
+27: Allparts
+28: Alnico Magnet
+29: Ammoon
+30: Ampeg
+31: Analogman
+32: Antelope
+33: Antonarra
+34: Apogee
+35: Apple
+36: Aria Pro II
+37: Aroma
+38: Art
+39: Art&Lutherie
+40: Artec
+41: Artiphon
+42: Arturia
+43: Ashdown
+44: Ashton
+45: Atomic
+46: Audient
+47: Audio technica
+48: Audio-Technica
+49: Audix
+50: AustroVOX
+51: B.C. Rich
+52: BBE
+53: BEAG
+54: BLUEXLAB
+55: BOSE
+56: BOSS
+57: BSG
+58: Babicz
+59: Bare Knuckle
+60: Bartolini
+61: Basix
+62: Baton Rouge
+63: Beetronics
+64: Behringer
+65: Berg Larsen
+66: Bespeco
+67: Beta Aivin
+68: Beta-Way Sound
+69: Better
+70: Beyerdinamic
+71: Beyerdynamic
+72: Big Bends
+73: Biyang
+74: Blackstar
+75: Blade
+76: BluGuitar
+77: Bogey AMP
+78: Bogner
+79: Bosphorus
+80: Boston
+81: Brian May Guitars
+82: Browne Amplification
+83: Brunetti
+84: Buescher
+85: Bugera
+86: Bulgin
+87: Bullet Cable
+88: Burns
+89: Böhm-Verstarker
+90: CENTOLIGHT
+91: CGiant
+92: CIOKS
+93: CME
+94: Caline
+95: Cameo
+96: Camps
+97: Canto
+98: Carl Martin
+99: Carlsbro
+100: Carvin
+101: Casio
+102: Catalinbread
+103: Celestion
+104: Ceriatone
+105: Chaos Custom Shop
+106: Chapman
+107: Chapman Guitars
+108: Charvel
+109: Chase Bliss
+110: Cheri
+111: Cherub
+112: Cimar
+113: Clavia
+114: Cmatmods
+115: Cooper FX
+116: Cordoba
+117: Cort
+118: Crate
+119: Creamery
+120: Crestwood
+121: DAION
+122: DAVID EDEN
+123: DAddario
+124: DAngelico
+125: DB Technologies
+126: DBX
+127: DENON
+128: DIXON
+129: DOD
+130: DSM & Humboldt
+131: DV Mark
+132: Danelectro
+133: Daphon
+134: Darkglass
+135: Dean
+136: Dean Markley
+137: Delano
+138: Delcam Audio
+139: Demeter
+140: Demonfx
+141: DiMarzio
+142: Diamond
+143: Diezel
+144: DigiDesign
+145: Digitech
+146: Dimavery
+147: Dinacord
+148: Dingwall
+149: Dolamo
+150: Donner
+151: Dowina
+152: Dreadbox
+153: DryBell
+154: Duesenberg
+155: Duncan designed
+156: Dunlop
+157: Dynacord
+158: EBS
+159: EHX
+160: EKO
+161: EMG
+162: EMU
+163: ENGL
+164: ESP
+165: EVH
+166: EWR
+167: EX
+168: EarthQuaker Devices
+169: Eastman
+170: Eastwood
+171: Echo Effects
+172: Eden
+173: Edwards
+174: Egnater
+175: Egyedi készítésű
+176: Electro Harmonix
+177: Electro-Harmonix
+178: Elektro- Harmonix
+179: Elektron
+180: Eminence
+181: Emma Light
+182: Emperador
+183: Empress
+184: Enya
+185: Epiphone
+186: Erhard Handmade Instruments
+187: Ernie Ball
+188: Evans
+189: Eventide
+190: Evolution
+191: FAME
+192: FGN (Fujigen)
+193: FIFINE
+194: FLAMMA
+195: FLEOR
+196: FTS
+197: Fairmont
+198: Falcon
+199: Fargen
+200: Fender
+201: Fenix
+202: Fernandes
+203: Ferrofish
+204: Fibenare
+205: Fishman
+206: Flattley
+207: Flight
+208: Floyd-Rose
+209: Focal
+210: Focusrite
+211: Fortin Amplification
+212: Fostex
+213: Fractal audio
+214: Framus
+215: Friedman
+216: Fulltone
+217: Fun Generation
+218: Furch
+219: G lab
+220: G&L
+221: G&L
+222: G-LAB
+223: GAT
+224: GENZ BENZ
+225: GFI System
+226: GRECO
+227: GREG
+228: GRETSCH
+229: Gajdos
+230: Galanti
+231: Gallan
+232: Gallien-Krueger
+233: Gamechanger Audio
+234: Gator
+235: Gear4music
+236: Genelec
+237: George Dennis
+238: George Ls
+239: Geryon
+240: Gewa
+241: Geyer
+242: Gibson
+243: Gitane
+244: Godin
+245: Golden Age Project
+246: Gotoh
+247: GraphTech
+248: Great Eastern FX Co.
+249: Grover
+250: Guild
+251: Guitar Madness
+252: Guitarras Rosner
+253: Guyker
+254: HELVIA
+255: HH
+256: HK
+257: Haeussel
+258: Hagström
+259: Hamer
+260: Hammond
+261: Handmade
+262: HardWire
+263: Harley Benton
+264: Harman Kardon
+265: Hartke
+266: Headrush
+267: Henry`s
+268: Hercules
+269: Heritage Kalamazoo
+270: Hipshot
+271: Hiwatt
+272: Hohner
+273: Hondo
+274: Honey Bee Amps
+275: Hopf
+276: Hora
+277: Hosco
+278: Hotone
+279: Hoyer
+280: Hughes&Kettner
+281: Huiyuan
+282: Hungry Robot Pedals
+283: Höfner
+284: IK Multimedia
+285: Ibanez
+286: Icon
+287: Inter-M
+288: Invasion
+289: Involight
+290: Ishow
+291: J&D
+292: J. Rockett
+293: JHS
+294: JJ
+295: JOYO
+296: Jackson
+297: Jackson Ampworks
+298: Jam Pedals
+299: Jay Turser
+300: Jensen
+301: Jet
+302: Jim Dunlop
+303: Jim Harley
+304: Johnson
+305: Jolana
+306: Jupiter
+307: K&M
+308: K&K
+309: KRK
+310: KURZWEIL
+311: Kaosamp
+312: Kasleder
+313: Kawai
+314: Keeley
+315: Keiper
+316: Kemper
+317: Kent Armstrong
+318: Ketron
+319: Keytone
+320: Kiesel
+321: Klemt Echolette
+322: Klotz
+323: Kma
+324: Koch
+325: Kokko
+326: Korg
+327: Kramer
+328: Krank
+329: Kremona
+330: Kustom
+331: König & Meyer
+332: Köves
+333: LAG
+334: LEGEND
+335: LEWITZ
+336: LR Baggs
+337: LTD
+338: La Bella
+339: Laboga
+340: Lace
+341: Lakland
+342: Laney
+343: Lanikai
+344: Larrivée
+345: Latin Percussíon
+346: Lauberger & Gloss
+347: Lava
+348: Lekato
+349: LeoSound
+350: Lexicon
+351: Lindy Fralin Pickups
+352: Line6
+353: Little Bear
+354: Lodato
+355: Lollar
+356: London City
+357: Lovepedal
+358: Lovepedal Custom Effects
+359: Ludwig
+360: Luxor
+361: Lyon by Washburn
+362: M audio
+363: M-Audio
+364: M-Live
+365: M3 Mthree
+366: MAESTRO
+367: MATRIX
+368: MLP
+369: MNC
+370: MOTU
+371: MXR
+372: Mackie
+373: Magic Fx
+374: MagicFx
+375: Maison
+376: Manuel Rodrigez
+377: Mapex
+378: Maquinas Fx
+379: Marathon
+380: Markbass
+381: Marlin by Hohner
+382: Marshall
+383: Martin
+384: Martinez
+385: Maton
+386: Matteacci`s
+387: Maxon
+388: Mayones
+389: Mec
+390: Meinl
+391: Melo Audio
+392: Mesa Boogie
+393: Meze Audio
+394: Midas
+395: Mighty Mite
+396: Millenium
+397: Mission Engineering
+398: Modulus
+399: Monacor
+400: Monster Cable
+401: Mooer
+402: Moog
+403: Morley
+404: Morris
+405: Mosky
+406: Mosrite
+407: Murat Diril
+408: Music Man
+409: Musikraft
+410: Musima
+411: Mákosamp
+412: NEUTRIK
+413: NORD
+414: NOVATION
+415: NanoStomp
+416: Native Instruments
+417: Nedis
+418: Neewer
+419: Nektar
+420: Neunaber
+421: Neural DSP
+422: New Sound
+423: Nivtec
+424: No name
+425: Nobels
+426: Novastar
+427: Nowsonic
+428: Numark
+429: Nux
+430: OLP
+431: Old Blood Noise Endevours
+432: Omnitronic
+433: One Control
+434: Onkyo
+435: Orange
+436: Origin Effects
+437: Orion
+438: Orla
+439: Ormsby
+440: Ortega
+441: Ortofon
+442: Orville
+443: Ovation
+444: PEARL
+445: PRS SE
+446: Paiste
+447: Palatino
+448: Palmer
+449: Panasonic
+450: Panda Audio
+451: Paoletti
+452: Park By Marshall
+453: Parker
+454: Partsland
+455: Pasadena
+456: Paul Reed Smith
+457: Pause & Effects
+458: Peavey
+459: Pedalhealer
+460: Pedaltrain
+461: Peerless
+462: Peter Crow
+463: Peterson
+464: Phil Jones
+465: Philips
+466: Pigtronix
+467: Pioneer
+468: Planet Waves
+469: Positive Grid
+470: Power Dynamics
+471: Powerstate
+472: Presonus
+473: Prism Sound
+474: ProTone
+475: Proel
+476: QSC
+477: Quilter
+478: RAULEY
+479: REVV
+480: RFT
+481: RME
+482: Radial
+483: Rainger FX
+484: Randall
+485: Razzor
+486: Reflex
+487: Reloop
+488: Revoltage
+489: Richwood
+490: Rickenbacker
+491: RightOn! Straps
+492: Rivera
+493: Roadinger
+494: Robust
+495: RockBag
+496: RockBoard
+497: RockStand
+498: Rocktron
+499: Rode
+500: Roger Mayer
+501: Rogers
+502: Roland
+503: Roling`s
+504: Ross
+505: Rotosound
+506: Rowin
+507: Roxtone
+508: Ré
+509: SGR by Schecter
+510: SKB
+511: SKYTEC
+512: SL Amps
+513: SM Pro Audio
+514: SOLTON
+515: SONY
+516: SR Technology
+517: STATUS
+518: SWR
+519: SX
+520: Sabian
+521: Sadowsky
+522: SafeCase
+523: Samick
+524: Sandberg
+525: Schaller
+526: Schecter
+527: Schertler
+528: Seagull
+529: Seiko
+530: Sela
+531: Selmer
+532: Sennheiser
+533: Seymour Duncan
+534: Seymour-Duncan
+535: Shadow
+536: Shaman
+537: Sheptone
+538: Shift Line
+539: Shure
+540: Sigma
+541: Silverblade
+542: Sire
+543: Skreddy Pedals
+544: Smitty
+545: Solar Guitars
+546: Solid State Logic
+547: Sonicake
+548: Sonnet
+549: Sonor
+550: Sound City
+551: SoundSation
+552: Soundcraft
+553: Soundking
+554: Source Audio
+555: Spear
+556: Special Design Case
+557: Spector
+558: Sperzel
+559: Spira
+560: Spirit
+561: Squier
+562: Stage line
+563: Stagg
+564: Starcaster
+565: Startone
+566: Steinberg
+567: Steinberger
+568: Stentor
+569: Sterling
+570: Stone Deaf
+571: Strandberg
+572: Strunal
+573: Strymon
+574: Studio Projects
+575: SubZero
+576: Sublime
+577: Suhr
+578: Sunn
+579: Superlux
+580: Suprem
+581: Supro
+582: Surfy Industries
+583: Svetlana
+584: Switchcraft
+585: T-Rex
+586: TACOMA
+587: TAD
+588: TAMA
+589: TAPCO
+590: TC Electronic
+591: TC Helicon
+592: TC-Helicon
+593: TECH 21
+594: TEISCO
+595: TERADA
+596: THD
+597: TLAudio
+598: TOOB
+599: TV-JONES
+600: Takamine
+601: Tanglewood
+602: Tascam
+603: Taurus
+604: Taylor
+605: Tc Electronik
+606: Tech21
+607: Technics
+608: Telefunken
+609: Terratec
+610: Teyun
+611: The Gigrig
+612: Thermion
+613: Thomann
+614: Thon
+615: Tokai
+616: Toledo
+617: Tom Anderson
+618: Tone City
+619: TonePros
+620: Toneking
+621: Tonerider
+622: Torque
+623: Toshiba
+624: Trace Elliot
+625: Traynor
+626: Trevor J. James
+627: Trickfish
+628: Two Notes
+629: Tycoon
+630: Udo Roesner
+631: Ultrasone
+632: Universal Audio
+633: Uniwell
+634: VGS
+635: VIC FIRTH
+636: Valencia
+637: Valeton
+638: Vanson
+639: Vantage
+640: Vega-Trem
+641: Veiger
+642: Vermona
+643: Vester
+644: Vht
+645: Victory
+646: Vintage
+647: Viscount
+648: Vision
+649: Voice Kraft
+650: Voodoo Lab
+651: Vovox
+652: Vox
+653: Vs Audio
+654: Walden
+655: Walrus
+656: Walrus Audio
+657: Wampler
+658: Warm Audio
+659: Warmoth
+660: Warwick
+661: Warwick Rockbass
+662: Washburn
+663: Way Huge
+664: Westone
+665: Wharfedale
+666: Wilkinson
+667: Wittner
+668: Woodhead
+669: Woodo
+670: Xiaokoa
+671: Xotic
+672: Xsonic
+673: Xvive
+674: YAMAHA
+675: YAMAKI
+676: ZVEX
+677: Zildjian
+678: Zilla
+679: Zoom
+680: Zultan
+681: Zzyzx
+682: drd FX
+683: iRig
+684: mono
+685: sE Electornics
+686: the t.amp
+Van 'Fender' az opciók között? true
+]]></system-out>
+  </testcase>
+  <testcase name="testfilterFunction" classname="seleniumTests.tests.Tests" time="22.879">
+    <system-out><![CDATA[Retrying due to: StaleElementReferenceException
+]]></system-out>
+  </testcase>
+</testsuite>

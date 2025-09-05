@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-09-04T23:18:24 CEST" name="Surefire suite" finished-at="2025-09-04T23:19:24 CEST" duration-ms="59968">
+    <groups>
+    </groups>
+    <test started-at="2025-09-04T23:18:24 CEST" name="Surefire test" finished-at="2025-09-04T23:19:24 CEST" duration-ms="59968">
+      <class name="apiTests.apiActions.ApiActionsTest">
+        <test-method signature="getBaseURI()[pri:1, instance:apiTests.apiActions.ApiActionsTest@18ce0030]" started-at="2025-09-04T23:18:24 CEST" name="getBaseURI" description="Ez a teszt meghivja a baseURI-t és megnézi, hogy a kérés 200-al jön-e vissza." finished-at="2025-09-04T23:18:25 CEST" duration-ms="639" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getBaseURI -->
+        <test-method signature="getSpecificOnlineUser()[pri:2, instance:apiTests.apiActions.ApiActionsTest@18ce0030]" started-at="2025-09-04T23:18:25 CEST" name="getSpecificOnlineUser" description="Ez a teszt meghivja a baseURI-t és a response-ból kiszedi, hogy hány felhasználó van online. Megnézi hogy bizonyos nevű felhasználókból van-e és hány db, majd kilistázza azokat." finished-at="2025-09-04T23:18:25 CEST" duration-ms="323" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getSpecificOnlineUser -->
+      </class> <!-- apiTests.apiActions.ApiActionsTest -->
+      <class name="seleniumTests.tests.Tests">
+        <test-method is-config="true" signature="openPage()[pri:0, instance:seleniumTests.tests.Tests@43301423]" started-at="2025-09-04T23:18:25 CEST" name="openPage" finished-at="2025-09-04T23:18:35 CEST" duration-ms="9720" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openPage -->
+        <test-method signature="testSpecificFilterElementsInDropDown()[pri:1, instance:seleniumTests.tests.Tests@43301423]" started-at="2025-09-04T23:18:35 CEST" name="testSpecificFilterElementsInDropDown" description="Ez a teszt ellenőrzi a márka filter dropdownt. Megnézi, hogy van-e Fender gitár benne és kiirat egy listát a márkákkal" finished-at="2025-09-04T23:18:51 CEST" duration-ms="16109" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSpecificFilterElementsInDropDown -->
+        <test-method is-config="true" signature="stopBrowser()[pri:0, instance:seleniumTests.tests.Tests@43301423]" started-at="2025-09-04T23:18:51 CEST" name="stopBrowser" finished-at="2025-09-04T23:18:51 CEST" duration-ms="124" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- stopBrowser -->
+        <test-method is-config="true" signature="openPage()[pri:0, instance:seleniumTests.tests.Tests@43301423]" started-at="2025-09-04T23:18:51 CEST" name="openPage" finished-at="2025-09-04T23:19:01 CEST" duration-ms="9954" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openPage -->
+        <test-method signature="testfilterFunction()[pri:2, instance:seleniumTests.tests.Tests@43301423]" started-at="2025-09-04T23:19:01 CEST" name="testfilterFunction" description="Ez a teszt ellenőrzi a márka filter dropdown kattintható-e és utána a filter gomb megnyomása után van-e eredmény" finished-at="2025-09-04T23:19:24 CEST" duration-ms="22880" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testfilterFunction -->
+        <test-method is-config="true" signature="stopBrowser()[pri:0, instance:seleniumTests.tests.Tests@43301423]" started-at="2025-09-04T23:19:24 CEST" name="stopBrowser" finished-at="2025-09-04T23:19:24 CEST" duration-ms="117" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- stopBrowser -->
+      </class> <!-- seleniumTests.tests.Tests -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
